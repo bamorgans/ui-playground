@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'ui-lib';
+import { Button } from 'ui-core';
 import '../assets/stylesheets/base.scss';
 
 
