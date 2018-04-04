@@ -1,0 +1,12 @@
+.eslintrc.js
+enzyme-setup.js
+
+test/*
+
+# excluding external js files
+src/assets/js/*
+
+src/index.html
+
+webpack.config.js
+webpack.prod.config.js
