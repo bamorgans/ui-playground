@@ -1,5 +1,16 @@
-node_modules/
-*npm-debug.log
-*.DS_Store
+# dependencies
+/node_modules
+
+# testing
+
+# production
 dist/*
-.idea/*
+
+# global
+*.log*
+*.iml
+*.idea/*
+package-lock.json
+*.swo
+*.swp
+*.DS_Store
