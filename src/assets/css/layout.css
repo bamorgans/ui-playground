@@ -1,0 +1,114 @@
+@import '~antd/dist/antd.css';
+
+
+:root {
+    --dark-gray: #343434;
+    --font-family-sans-serif: "Lato", sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* ----------------------------------------------- */
+/* layout for wide-screen (e.g. browser)           */
+/* horizontal header layout, sidebar and body      */
+/* ----------------------------------------------- */
+
+.wrapper {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows:
+            [header] 55px
+            [acct-manager] 30px
+            [content] 1fr
+            [footer]  minmax(min-content, auto);
+
+    grid-template-columns:
+            [sitenav_body] minmax(auto, min-content)
+            [right] 1fr
+            [cols-end];
+    grid-gap: 1px;
+}
+
+.header {
+    background-color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    grid-row: header;
+    grid-column: 1 / -1;
+}
+
+.acctManager {
+    grid-row: acct-manager;
+    grid-column: 1 / cols-end;
+}
+
+.contents {
+    background-color: #F0F3F6;
+    grid-row: content;
+    grid-column: 2 / -1;
+}
+
+.footer {
+    background-color: var(--dark-gray);
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    grid-row: footer;
+    grid-column: 1 / -1;
+}
+
+.sitenav {
+    background-color: #FFF;
+    grid-row: content;
+    grid-column: sitenav_body / right;
+}
+
+/* ============================================================================== */
+/* layout for narrow screen (mobile)                                              */
+/* all components laid out vertically in a single column                          */
+/* ============================================================================== */
+
+@media screen and (max-width:990px) {
+    .wrapper {
+        display: grid;
+        width: 100vw;
+        grid-template-rows:
+                [header] minmax(0, max-content)
+                [acctManager] 30px
+                [contents] minmax(0, max-content)
+                [footer] auto;
+
+        grid-template-columns: 100vw;
+    }
+
+    .header {
+        display: grid;
+        grid-row: header;
+    }
+
+    .acctManager {
+        grid-row: acctManager;
+        grid-column: 1 / -1;
+    }
+
+    .contents {
+        grid-row: contents;
+        grid-column: 1;
+    }
+
+    .footer {
+        background-color: var(--dark-gray);
+        color: #FFF;
+        grid-row: footer;
+        grid-column: 1;
+    }
+}

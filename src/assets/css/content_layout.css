@@ -1,0 +1,91 @@
+
+/*
+ * Styles for the MainContentContainer, and also for
+ * the components contained in the MainContentContainer,
+ * which, at the time of this creation, include
+ * Announcements, NeedHelpWith, LearningCenter, and KnowledgeBase.
+ *
+ * The MainContentContainer is laid out using CSS-Grid, and
+ * there is a Wide and a Narrow layout, corresponding to
+ * browser and mobile users.
+*/
+.contentContainer {
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* ============================================================================== */
+/* layout for wide-screen (e.g. browser) */
+/* ============================================================================== */
+
+.contentWrapper {
+    display: grid;
+    width: 100%;
+
+    grid-template-columns:
+        [first] 1fr
+        [second] 3fr
+        [cols-end];
+
+    grid-auto-rows: auto;
+    grid-gap: 5px;
+}
+
+.contentWrapper .activities {
+    grid-column: 1 / 2
+}
+
+.contentWrapper .announcements {
+    grid-column: 2 / -1
+}
+
+.contentWrapper .needHelpWith {
+    grid-column: 1 / -1
+}
+
+.contentWrapper .learningCenter {
+    grid-column: 1 / -1
+}
+
+.contentWrapper .knowledgeBase {
+    grid-column: 1 / -1
+}
+
+/* ============================================================================== */
+/* layout for narrow screen (mobile) */
+/* ============================================================================== */
+
+@media screen and (max-width:900px) {
+    .contentWrapper {
+        display: grid;
+        width: 100%;
+
+        grid-template-columns: 100vw;
+
+        grid-auto-rows: auto;
+        grid-gap: 5px;
+    }
+
+    .contentWrapper .activities {
+        grid-column: 1 / -1
+    }
+
+    .contentWrapper .announcements {
+        grid-column: 1 / -1
+    }
+
+    .contentWrapper .needHelpWith {
+        grid-column: 1 / -1
+    }
+
+    .contentWrapper .learningCenter {
+        grid-column: 1 / -1
+    }
+
+    .contentWrapper .knowledgeBase {
+        grid-column: 1 / -1
+    }
+
+}
