@@ -1,4 +1,18 @@
 {
-  "presets": ["env", "react"],
-  "plugins": [ "transform-object-rest-spread"]
+  "presets": [
+    [
+      "env",
+      {
+
+        "target": {
+          "module": false,
+          "uglify": true
+        }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ]
 }

@@ -4,7 +4,7 @@
   "description": "a playground for experimenting with a ui-core component library",
   "main": "server.js",
   "scripts": {
-    "build": "webpack --config webpack.prod.config.js --display-error-details",
+    "build": "webpack -p --config webpack.prod.config.js --display-error-details",
     "build:dev": "webpack --config webpack.config.js --display-error-details",
     "dev": "webpack-dev-server --hot --inline",
     "lint": "eslint --ext .js,.jsx src/**; exit 0",
@@ -20,10 +20,11 @@
     "@fortawesome/fontawesome-free-brands": "^5.0.9",
     "@fortawesome/fontawesome-free-solid": "^5.0.9",
     "@fortawesome/react-fontawesome": "0.0.18",
-    "antd": "^3.4.0",
+    "antd": "^3.4.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "webpack": "^3.8.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -59,6 +60,7 @@
     "webpack-cli": "^2.0.13",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "^2.4.2",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.22.0",
+    "webpack-merge": "^4.1.2"
   }
 }
