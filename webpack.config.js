@@ -55,8 +55,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js','.jsx','.scss'],
-        symlinks: true
+        extensions: ['.js','.jsx','.scss']
     },
     output: {
         path: path.join(__dirname, '/dist'),
