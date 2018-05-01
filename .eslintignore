@@ -1,5 +1,8 @@
-.eslintrc*
+.eslintrc.js
 enzyme-setup.js
+webpack.*.js
+postcss.config.js
+README*.*
 
 test/*
 
@@ -7,6 +10,3 @@ test/*
 src/assets/js/*
 
 src/index.html
-
-webpack.config.js
-webpack.prod.config.js

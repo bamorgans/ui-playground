@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -13,7 +12,7 @@ module.exports = {
     ],
     module: {
         rules: [
-              // First, run the linter.
+            // First, run the linter.
             // It's important to do this before Babel processes the JS.
             {
                 test: /\.(js|jsx)$/,
@@ -28,7 +27,7 @@ module.exports = {
                 ],
                 include: APP_SRC,
             },
-            { test: /\.js?$/, loader: 'babel-loader', exclude: /node_modules/ },
+            {test: /\.js?$/, loader: 'babel-loader', exclude: /node_modules/},
 
             {
                 test: /\.(js|jsx)$/,
@@ -39,7 +38,8 @@ module.exports = {
                 },
 
             },
-            { test: /\.s?css$/,
+            {
+                test: /\.s?css$/,
                 loader: 'style-loader!css-loader!sass-loader'
             },
             {
@@ -55,14 +55,13 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js','.jsx','.scss']
+        extensions: ['.js', '.jsx', '.scss']
     },
     output: {
         path: path.join(__dirname, '/dist'),
         publicPath: '/',
         filename: 'bundle.js'
     },
-    devtool: 'cheap-eval-source-map',
     devServer: {
         contentBase: './dist',
         hot: true
