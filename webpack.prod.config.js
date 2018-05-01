@@ -1,38 +1,43 @@
-const config = require('./webpack.config.js');
+const path = require('path');
 const webpack = require('webpack');
-
-config.plugins.push(
-  new webpack.DefinePlugin({
-    "process.env": {
-      "NODE_ENV": JSON.stringify("production")
-    }
-  })
-);
-
-config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false,
-            screw_ie8: true,
-            conditionals: true,
-            unused: true,
-            comparisons: true,
-            sequences: true,
-            dead_code: true,
-            evaluate: true,
-            if_return: true,
-            join_vars: true
-        },
-        mangle: true,
-        output: {
-            comments: false
-        },
-        sourceMap: true,
-        exclude: [/\.min\.js$/gi] // skip pre-minified libs
-    })
-);
+const merge = require ('webpack-merge');
+const common = require('./webpack.common.config.js');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 
-config.plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
+const APP_SRC = path.resolve(__dirname, 'src');
+const APP_LIB = path.resolve(__dirname, 'lib');
 
-module.exports = config;
+module.exports = merge (common, {
+    devtool: false,
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                ecma: 6,
+                safari10: true,
+                compress: {
+                    warnings: false,
+                    conditionals: true,
+                    unused: true,
+                    comparisons: true,
+                    sequences: true,
+                    dead_code: true,
+                    evaluate: true,
+                    if_return: true,
+                    join_vars: true
+                },
+                mangle: true
+
+            },
+            sourceMap: false,
+            exclude: [/\.min\.js$/gi] // skip pre-minified libs
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
+    ]
+});
