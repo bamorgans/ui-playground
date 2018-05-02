@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p --config webpack.prod.config.js --display-error-details  --mode production",
     "build:dev": "webpack --config webpack.dev.config.js --display-error-details  --mode development",
-    "dev": "webpack-dev-server --hot --inline --mode development",
+    "dev": "webpack-dev-server --hot --inline --config webpack.dev.config.js --mode development",
     "lint": "eslint --ext .js,.jsx src/**; exit 0",
     "lint:fix": "eslint --ext .js,.jsx src/**  --fix",
     "lint:watch": "esw -w --ext .js,.jsx src/**",
